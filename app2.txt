@@ -5,10 +5,5 @@ aaaaaaaaaaaaaadasf
 aaaaaaaaaaaaaa
 dfa
 dasffsdsfdaf
-<<<<<<< HEAD
 adfdfadfs
-mainブランチで修正
-=======
 adfdfadfsdfffff
-couponブランチで修正
->>>>>>> coupon
