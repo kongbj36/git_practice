@@ -66,5 +66,27 @@ restore, revert, reset
 | `git revert`  | コミットを打ち消す     　　| ✅（追加される）  　| 間違ったコミットを戻す（履歴を保ちたい場合） | 安全（推奨）        
 | `git reset`   | 履歴を巻き戻す／変更を破棄 | ✅（履歴が変わる） 　| ローカルの履歴を消したいとき（慎重に！）   | 危険（基本的にローカル用） 
 
+10_**********リモートレポジトリにpush**********
+1)
+$ git push リモートレポジトリURL main
+$ git push -u リモートレポジトリURL main
+(-uをすると次からは「$ git push」だけで可能)
+
+2)
+$ git remote add origin https://github.com/kongbj36/git_practice.git
+をすると、次からは「$ git push origin」だけで、リモートレポジトリURLを記憶する。
+
+11_リモートレポジトリからcloneする。
+git clone https://github.com/kongbj36/git_practice.git
+
+12_チームメンバーがリモートレポジトリにpushする方法
+➀SettingsのCollaboratorsにチームメンバーのIDを登録→➁ローカルからリモートレポジトリをpull「$ git pull https://github.com/kongbj36/git_practice.git」
+→➂「$ git push remote」
+＊git pullはgit fetchとgit mergeを一緒にするコマンド
+つまりgit pushの前にgit pull(git fetch + git merge)をする必要がある。
+
+
+００_.gitignoreファイル
+リモートレポジトリにアップロードしないファイルを記載するファイル
 
 
