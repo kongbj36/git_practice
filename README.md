@@ -82,11 +82,53 @@ git clone https://github.com/kongbj36/git_practice.git
 12_チームメンバーがリモートレポジトリにpushする方法
 ➀SettingsのCollaboratorsにチームメンバーのIDを登録→➁ローカルからリモートレポジトリをpull「$ git pull https://github.com/kongbj36/git_practice.git」
 →➂「$ git push remote」
-＊git pullはgit fetchとgit mergeを一緒にするコマンド
-つまりgit pushの前にgit pull(git fetch + git merge)をする必要がある。
+*git pullはgit fetchとgit mergeを一緒にするコマンド
+*つまりgit pushの前にgit pull(git fetch + git merge)をする必要がある。
+*特定のbranchをpushするときは、「$ git push origin 特定branch名」
+*git push originだけすると、現在のブランチがpush（すべてのブランチをpushするのではない） 
 
+13_Compare & pull request
+pushされたブランチをmergeする前にPRする。（PRの時も、confilectがある場合は、「Resolve Conflicts」で解決した後、「Merge pull request」する必要がある。
 
-００_.gitignoreファイル
+14_リモートレポジトリでbranch, mergeなどの管理方法論
+git flow, github flow, gitlab flow, trunk-basedなどがある。（プログラミングではなくて方法論）
+
+1)git flow
+- main ブランチ：実際に使うプログラム本体
+- develop ブランチ：develop用のmainブランチ。developにも直接にコードを書いたりしたらダメ。
+- feature ブランチ ：機能を追加する一番基本的なブランチ。実際の開発は子のブランチで。
+- release ブランチ：developブランチを完成した後、mainブランチにmergeする前に最終的に確認する（プロジェクトによっては使わなくてもいい）。
+                  mainブランチにマージするとき、developブランチにも一緒にマージする。
+- hotfix ブランチ：mainブランチのバーグを早めに修正するとき使う。mainブランチにマージするときdevelopブランチにも一緒にマージする。
+![git flow](https://github.com/user-attachments/assets/b1f06d20-61e2-4aa2-a594-9c8f81b9ac9b)
+
+＊git flow方法論は最近CI/CDなどではあんまり使わない。
+
+2)Trunk based
+github flowも似てる。CI/CD、自動化などでよく使う。運用保守の仕事でも。
+![그림7](https://github.com/user-attachments/assets/89dcaeeb-4178-4d2c-8b04-b968c174d358)
+
+15_git stash
+あんまり使わないけど、メモ機能みたいな機能
+
+16_.gitignoreファイル
 リモートレポジトリにアップロードしないファイルを記載するファイル
+sample)Java用の .gitignoreファイル（MavenとかGradleプロジェクトのEclipse/IntelliJ開発環境で）
+# クラスファイル
+*.class
+
+# ログ
+*.log
+
+# ビルドディレクトリー
+target/
+build/
+
+# IDE
+*.iml
+.idea/
+*.classpath
+*.project
+*.settings/
 
 
